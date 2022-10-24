@@ -1,0 +1,16 @@
+{
+  "semi": true,
+  "trailingComma": "all",
+  "singleQuote": true,
+  "printWidth": 300,
+  "tabWidth": 4,
+  "useTabs": true,
+  "overrides": [
+    {
+      "files": "*.hbs",
+      "options": {
+        "parser": "html"
+      }
+    }
+  ]
+}

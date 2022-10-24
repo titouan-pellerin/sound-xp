@@ -1,0 +1,58 @@
+@use 'tools/breakpoints';
+@use 'tools/colors';
+@use 'tools/mixins';
+
+#canvas-wrapper,
+#canvas-wrapper canvas {
+	pointer-events: auto;
+	position: fixed;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
+
+	touch-action: none;
+}
+
+#canvas-wrapper {
+	z-index: 0;
+}
+
+html {
+	pointer-events: none;
+	color: colors.$white;
+
+	font-size: calc(100vw / 320);
+	// @include gt-america-mono;
+
+	@include breakpoints.tablet {
+		font-size: calc(100vw / 768);
+	}
+
+	@include breakpoints.desktop {
+		font-size: calc(100vw / 1024);
+	}
+
+	@include breakpoints.large {
+		font-size: calc(100vw / 1440);
+	}
+
+	@include breakpoints.xlarge {
+		font-size: calc(100vw / 1600);
+	}
+}
+
+#root {
+	font-size: 11px;
+}
+
+body {
+	pointer-events: none;
+}
+
+#app {
+	width: 100%;
+	height: 100%;
+	pointer-events: none;
+}
+
