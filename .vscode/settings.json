@@ -1,0 +1,17 @@
+{
+	"editor.codeActionsOnSave": {
+		"source.fixAll": true,
+		"source.fixAll.eslint": true,
+		"source.organizeImports": true
+	},
+	"editor.formatOnSave": true,
+	"eslint.alwaysShowStatus": true,
+	"eslint.validate": ["javascript", "html"],
+	"[html]": {
+		"editor.defaultFormatter": "esbenp.prettier-vscode"
+	},
+	"[javascript]": {
+		"editor.defaultFormatter": "dbaeumer.vscode-eslint"
+	},
+	"prettier.configPath": ".prettierrc.json"
+}
