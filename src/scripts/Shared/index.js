@@ -1,3 +1,9 @@
+import AudioController from './AudioController.js';
+
 export default function () {
-	return {};
+	const audioController = new AudioController();
+
+	return {
+		audioController,
+	};
 }

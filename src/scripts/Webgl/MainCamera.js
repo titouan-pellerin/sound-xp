@@ -7,14 +7,14 @@ const BASE_FOV = 45;
 /** @extends PerspectiveCamera */
 export default class extends stateMixin(PerspectiveCamera) {
 	constructor() {
-		super(BASE_FOV, app.tools.viewport.ratio, 1, 12);
+		super(BASE_FOV, app.tools.viewport.ratio, 1, 1000);
 		this._parallaxIntensity = 1;
 
 		this._decay = new Vector2();
 		this._lDecay = new Vector2();
 
 		this._position = this.position.clone();
-		this._position.z = 5;
+		this._position.z = 20;
 		this._quaternion = this.quaternion.clone();
 	}
 

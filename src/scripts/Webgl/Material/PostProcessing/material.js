@@ -1,5 +1,6 @@
 import { ShaderMaterial } from 'three';
-import hotShader from './hotShader.js';
+import fs from './fragment.fs?hotshader';
+import vs from './vertex.vs?hotshader';
 
 export default class PostProcessingMaterial extends ShaderMaterial {
 	/**
@@ -8,6 +9,7 @@ export default class PostProcessingMaterial extends ShaderMaterial {
 	 */
 	constructor(options = {}) {
 		super(options);
-		hotShader.use(this);
+		fs.use(this);
+		vs.use(this);
 	}
 }

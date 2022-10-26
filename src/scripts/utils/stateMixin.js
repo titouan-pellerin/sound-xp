@@ -7,7 +7,12 @@
 
 import state from 'scripts/State.js';
 
-export default (superclass = class T {}) =>
+/**
+ *
+ * @param {*} superclass
+ * @returns
+ */
+const stateMixin = (superclass = class T {}) =>
 	class extends superclass {
 		constructor(...args) {
 			super(...args);
@@ -18,3 +23,5 @@ export default (superclass = class T {}) =>
 			state.unregister(this);
 		}
 	};
+
+export default stateMixin;

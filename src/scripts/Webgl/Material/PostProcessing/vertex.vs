@@ -14,7 +14,7 @@ varying vec2 vRgbM;
 
 void main() {
   vUv = uv;
-  gl_Position = projectionMatrix * modelMatrix * vec4(position, 1.0);
+  gl_Position = projectionMatrix * modelMatrix * vec4(position, 1.);
   #ifdef USE_FXAA
   texcoords(vUv * uResolution, uResolution, vRgbNW, vRgbNE, vRgbSW, vRgbSE, vRgbM);
   #endif

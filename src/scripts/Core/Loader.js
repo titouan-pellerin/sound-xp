@@ -1,7 +1,7 @@
 import state from 'scripts/State.js';
 import { Cache, LinearEncoding, TextureLoader } from 'three';
-import { GLTFLoader } from 'three/examples/jsm/loaders/GLTFLoader';
-import { RGBELoader } from 'three/examples/jsm/loaders/RGBELoader';
+import { GLTFLoader } from 'three/addons/loaders/GLTFLoader.js';
+import { RGBELoader } from 'three/addons/loaders/RGBELoader.js';
 import { EVENTS } from 'utils/constants.js';
 import { manifest } from 'utils/manifest.js';
 

@@ -3,8 +3,8 @@ import fs from 'fs';
 import path, { resolve } from 'path';
 import { defineConfig, loadEnv } from 'vite';
 
-import glsl from 'vite-plugin-glsl';
 import handlebars from 'vite-plugin-handlebars';
+import hotShaders from './hotShaders/hotShadersRollupPlugin.js';
 import ifdef from './ifdef/ifdefRollupPlugin.js';
 import rollupOptions from './rollup.config.js';
 
@@ -31,7 +31,11 @@ export default ({ mode }) => {
 			},
 		},
 		plugins: [
-			glsl(),
+			hotShaders(env.VITE_DEBUG === 'true'),
+			// glsl({
+			// 	watch: true,
+			// 	compress: true,
+			// }),
 			ifdef({ DEBUG: env.VITE_DEBUG === 'true' }),
 			handlebars({
 				partialDirectory,
@@ -64,7 +68,7 @@ export default ({ mode }) => {
 				{ find: 'vendors', replacement: '/src/scripts/vendors' },
 				{ find: 'Webgl', replacement: '/src/scripts/Webgl' },
 			],
-			extensions: ['.cjs', '.mjs', '.js', '.ts', '.json'],
+			// extensions: ['.cjs', '.mjs', '.js', '.ts', '.json'],
 		},
 		build: {
 			rollupOptions,
