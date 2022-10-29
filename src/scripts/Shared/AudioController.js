@@ -1,6 +1,6 @@
 import app from 'scripts/App.js';
 import state from 'scripts/State.js';
-import Audio from 'Tools/Audio.js';
+import Audio from 'Shared/Audio.js';
 import musicUniforms from 'utils/musicUniforms.js';
 
 export default class AudioController {
