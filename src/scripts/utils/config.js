@@ -11,7 +11,7 @@ const BREAKPOINTS = {
 };
 
 const CUBES = {
-	countSqrt: 512,
+	countSqrt: 128,
 	// bounds: 10,
 };
 

@@ -4,7 +4,6 @@ import { HalfFloatType, MathUtils } from 'three';
 import { GPUComputationRenderer } from 'three/addons/misc/GPUComputationRenderer.js';
 import globalUniforms from 'utils/globalUniforms.js';
 import musicUniforms from 'utils/musicUniforms.js';
-import positionFragmentShader from 'Webgl/Material/FBO/position.fs';
 import velocityFragmentShader from 'Webgl/Material/FBO/velocity.fs';
 
 export default class FBO {
@@ -21,17 +20,17 @@ export default class FBO {
 		this._fillDataTextures();
 
 		// Init variables and dependencies
-		this._positionVariable = this.gpuCompute.addVariable('texturePosition', positionFragmentShader, this._positionDataTexture);
-		this._velocityVariable = this.gpuCompute.addVariable('textureVelocity', velocityFragmentShader, this._velocityDataTexture);
+		// this._positionVariable = this.gpuCompute.addVariable('uPosition', positionFragmentShader, this._positionDataTexture);
+		this._velocityVariable = this.gpuCompute.addVariable('uVelocity', velocityFragmentShader, this._velocityDataTexture);
 
-		this.gpuCompute.setVariableDependencies(this._positionVariable, [this._positionVariable, this._velocityVariable]);
-		this.gpuCompute.setVariableDependencies(this._velocityVariable, [this._positionVariable, this._velocityVariable]);
+		// this.gpuCompute.setVariableDependencies(this._positionVariable, [this._positionVariable, this._velocityVariable]);
+		this.gpuCompute.setVariableDependencies(this._velocityVariable, [this._velocityVariable]);
 
 		// Set uniforms
-		this._positionUniforms = this._positionVariable.material.uniforms;
+		// this._positionUniforms = this._positionVariable.material.uniforms;
 		this._velocityUniforms = this._velocityVariable.material.uniforms;
 
-		this._setPositionUniforms();
+		// this._setPositionUniforms();
 		this._setVelocityUniforms();
 
 		const error = this.gpuCompute.init();
@@ -69,6 +68,7 @@ export default class FBO {
 	_setPositionUniforms() {}
 
 	_setVelocityUniforms() {
+		this._velocityUniforms['uPosition'] = { value: this._positionDataTexture };
 		Object.assign(this._velocityUniforms, globalUniforms, musicUniforms);
 	}
 

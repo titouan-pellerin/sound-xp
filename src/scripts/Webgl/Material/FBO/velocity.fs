@@ -2,14 +2,15 @@ uniform float uTime;
 uniform float uDelta;
 
 uniform float uMusicVolume;
+uniform sampler2D uPosition;
 
 void main()	{
 
     vec2 uv = gl_FragCoord.xy / resolution.xy;
 
     // Texture sampling
-    vec4 tmpPos = texture2D(texturePosition, uv);
-    vec4 velocity = texture2D(textureVelocity, uv);
+    vec4 tmpPos = texture2D(uPosition, uv);
+    vec4 velocity = texture2D(uVelocity, uv);
     
     vec3 position = tmpPos.xyz;
     // position.y *= (uMusicVolume) + .1;
