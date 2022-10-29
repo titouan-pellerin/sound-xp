@@ -89,7 +89,7 @@ export default class {
 			assets = criticals;
 		}
 
-		return Promise.all(assets.map((asset) => this.loadAsset(asset.key, asset.path).then((result) => asset?.callbacks.forEach((callback) => callback(result)))));
+		return Promise.all(assets.map((asset) => this.loadAsset(asset.key, asset.path).then((result) => asset?.callbacks.forEach((callback) => callback?.(result)))));
 	}
 
 	loadAsset(key, path) {
