@@ -31,7 +31,7 @@ export default ({ mode }) => {
 			},
 		},
 		plugins: [
-			hotShaders(env.VITE_DEBUG === 'true'),
+			hotShaders({ isDev: env.VITE_DEBUG === 'true', compress: true }),
 			// glsl({
 			// 	watch: true,
 			// 	compress: true,

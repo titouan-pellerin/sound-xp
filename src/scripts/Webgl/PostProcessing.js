@@ -12,7 +12,8 @@ export default class {
 
 		this._material = new PostProcessingMaterial({
 			defines: {
-				USE_FXAA: !isWebGL2,
+				// USE_FXAA: !isWebGL2,
+				USE_FXAA: true,
 			},
 			uniforms: {
 				...globalUniforms,
